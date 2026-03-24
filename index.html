@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARDIM_EDEN_SYSTEM</title>
+  <style>
+    body {
+      background: black;
+      color: #cfcfcf;
+      font-family: monospace;
+      padding: 24px;
+    }
+    .hidden { display: none; }
+    input, button {
+      background: black;
+      color: #cfcfcf;
+      border: 1px solid #666;
+      padding: 8px;
+      font-family: monospace;
+      margin-top: 8px;
+    }
+    .red { color: #a30000; }
+    a { color: #7a0000; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p class="red">JARDIM_EDEN_SYSTEM v1.3</p>
+    <p>> acesso detectado</p>
+    <p>> verificação de memória necessária</p>
+
+    <div id="q1">
+      <p>Quem tem milhares de olhos sobre o corpo?</p>
+      <input id="a1" type="text">
+      <button onclick="next1()">Enviar</button>
+      <p id="r1"></p>
+    </div>
+
+    <div id="q2" class="hidden">
+      <p>Quem é vermelho e tem um culto?</p>
+      <input id="a2" type="text">
+      <button onclick="next2()">Enviar</button>
+      <p id="r2"></p>
+    </div>
+
+    <div id="q3" class="hidden">
+      <p>Quem fundou tudo isso?</p>
+      <input id="a3" type="text">
+      <button onclick="next3()">Enviar</button>
+      <p id="r3"></p>
+    </div>
+
+    <div id="q4" class="hidden">
+      <p>Quem é o falso Deus?</p>
+      <input id="a4" type="text">
+      <button onclick="next4()">Enviar</button>
+      <p id="r4"></p>
+    </div>
+
+    <div id="final" class="hidden">
+      <p class="red">ACESSO CONCEDIDO</p>
+      <p>registro de voz localizado:</p>
+      <p>
+        <a href="https://www.dropbox.com/scl/fi/c2w6z884u4mmjliahemp6/Verjo_01.mp3?rlkey=a7lgah5gjzkqkw9fp1eyxchv9&st=ul6zt99l&dl=1" target="_blank">
+          Verjo_01.mp3
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function clean(v) {
+      return v.trim().toLowerCase();
+    }
+
+    function next1() {
+      if (clean(document.getElementById("a1").value) === "khornes") {
+        document.getElementById("q2").classList.remove("hidden");
+        document.getElementById("r1").textContent = "correto.";
+      } else {
+        document.getElementById("r1").textContent = "resposta inválida.";
+      }
+    }
+
+    function next2() {
+      if (clean(document.getElementById("a2").value) === "verjo") {
+        document.getElementById("q3").classList.remove("hidden");
+        document.getElementById("r2").textContent = "correto.";
+      } else {
+        document.getElementById("r2").textContent = "resposta inválida.";
+      }
+    }
+
+    function next3() {
+      if (clean(document.getElementById("a3").value) === "moria") {
+        document.getElementById("q4").classList.remove("hidden");
+        document.getElementById("r3").textContent = "correto.";
+      } else {
+        document.getElementById("r3").textContent = "resposta inválida.";
+      }
+    }
+
+    function next4() {
+      if (clean(document.getElementById("a4").value) === "verai") {
+        document.getElementById("final").classList.remove("hidden");
+        document.getElementById("r4").textContent = "correto.";
+      } else {
+        document.getElementById("r4").textContent = "resposta inválida.";
+      }
+    }
+  </script>
+</body>
+</html>
