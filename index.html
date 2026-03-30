@@ -265,17 +265,11 @@
       filter: grayscale(1) contrast(1.1);
     }
 
-    #quiz-section {
-      margin-top: 20px;
-      text-align: center;
-      border-top: 1px solid #1e1e1e;
-      padding-top: 18px;
-    }
-
-    #final {
-      margin-top: 18px;
-      padding-top: 8px;
-      border-top: 1px solid #411;
+    iframe {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid #222;
+      background: #000;
     }
 
     p {
@@ -343,7 +337,6 @@
     let horrorStarted = false;
     let eyeInterval = null;
     let eyeCount = 0;
-    let intensityLevel = 1;
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
 
@@ -408,6 +401,37 @@
             <p>Você pode usar esta área para outro enigma, um documento, coordenadas ou uma senha futura.</p>
           </div>
         `
+      },
+
+      "infernus": {
+        password: "BlackSky",
+        displayName: "Infernus",
+        role: "Consciência Fragmentada.",
+        html: `
+          <div class="card">
+            <h3>Conscious</h3>
+            <iframe
+              height="315"
+              src="https://www.youtube.com/embed/CiRvNm_oxRE"
+              title="Conscious"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="card">
+            <h3>SubConscious</h3>
+            <iframe
+              height="315"
+              src="https://www.youtube.com/embed/9IenXYjvqQA"
+              title="SubConscious"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        `
       }
     };
 
@@ -422,8 +446,6 @@
     }
 
     function setShakeIntensity(level) {
-      intensityLevel = level;
-
       const map = {
         1: { x: 1.5, y: 1.5, rot: 0.3 },
         2: { x: 2.5, y: 2.5, rot: 0.5 },
@@ -568,8 +590,8 @@
       accountScreen.classList.remove("hidden");
 
       pulseGlitch();
-      setShakeIntensity(3);
-      addEyes(3);
+      setShakeIntensity(userInput === "infernus" ? 4 : 3);
+      addEyes(userInput === "infernus" ? 6 : 3);
 
       setTimeout(() => {
         stopHorror();
